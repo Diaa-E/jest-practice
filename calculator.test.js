@@ -1,5 +1,7 @@
 import {calculator} from "./calculator.js";
 
+const invalidInputError = new Error("Invalid input");
+
 test("Adds two numbers", () => {
 
     expect(calculator.add(2, 3)).toBe(5);
@@ -7,7 +9,12 @@ test("Adds two numbers", () => {
 
 test("Add handles invalid input", () => {
 
-    expect(calculator.add("4", 5)).toThrow("Invalid input");
+    expect( () => calculator.add("X", 5)).toThrow(invalidInputError);
+});
+
+test("Add converts number strings", () => {
+
+    expect(calculator.add("3", 2)).toBe(5);
 });
 
 test("Subtracts two numbers", () => {
@@ -17,7 +24,12 @@ test("Subtracts two numbers", () => {
 
 test("Subtract handles invalid input", () => {
 
-    expect(calculator.subtract("4", 5)).toThrow("Invalid input");
+    expect( () => calculator.subtract("Y", 5)).toThrow(invalidInputError);
+});
+
+test("subtract converts number strings", () => {
+
+    expect(calculator.subtract("5", 3)).toBe(2);
 });
 
 test("Multiplies two numbers", () => {
@@ -27,7 +39,12 @@ test("Multiplies two numbers", () => {
 
 test("Multiply handles invalid input", () => {
 
-    expect(calculator.multiply("4", 5)).toThrow("Invalid input");
+    expect( () =>calculator.multiply("T", 5)).toThrow(invalidInputError);
+});
+
+test("Multiply converts number strings", () => {
+
+    expect(calculator.multiply("3", 7)).toBe(21);
 });
 
 test("Divides two numbers", () => {
@@ -37,5 +54,10 @@ test("Divides two numbers", () => {
 
 test("Divide handles invalid input", () => {
 
-    expect(calculator.divide("4", 5)).toThrow("Invalid input");
+    expect( () => calculator.divide("V", 5)).toThrow(invalidInputError);
+});
+
+test("Divide converts number strings", () => {
+
+    expect(calculator.divide("12", 3)).toBe(4);
 });
