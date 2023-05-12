@@ -1,8 +1,8 @@
 import {analyzeArray} from "./analyzeArray.js";
 
-const testArray = [1, 4, 5, 7, 21, 23, 100, 8, 71];
-const testArrayStr = [1, "4", 5, 7, "21", 23, 100, "8", 71];
-const testArrayInvalid = [1, 4, 5, 7, "T", 23, 100, 8, 71];
+const testArray = [1, 4, 5, 37, 21, 23, 100, 8, 71];
+const testArrayStr = [1, "4", 5, 37, "21", 23, 100, "8", 71];
+const testArrayInvalid = [1, 4, 5, 37, "T", 23, 100, 8, 71];
 const errorInvalidInput = new Error("Invalid input");
 
 test("Gets array average", () => {
